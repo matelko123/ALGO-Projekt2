@@ -3,20 +3,24 @@
 #include <iostream>
 using namespace std;
 
-struct Node {
+struct Node
+{
     int value;
     Node *next;
 };
 
-class LinkedList {
-    protected:
+class LinkedList
+{
+private:
     Node *root;
 
-    public:
+public:
     LinkedList();
-    LinkedList(int _val);
-    void push(int _val);
+
+    void insert(int);
     void print();
+
+    bool find(int);
 };
 
 #endif // __NODE_H__

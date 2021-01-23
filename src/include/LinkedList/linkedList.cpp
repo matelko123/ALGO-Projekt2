@@ -3,37 +3,47 @@
 
 using namespace std;
 
-LinkedList::LinkedList()
+LinkedList::LinkedList() 
 {
-    this->root = new Node;
+    root = NULL;
 }
 
-LinkedList::LinkedList(int _val)
-{
-    this->root = new Node;
-    this->root->value = _val;
-}
-
-void LinkedList::push(int _val)
+void LinkedList::insert(int key)
 {
     Node *tmp = new Node;
-    tmp->value = _val;
-    tmp->next = NULL;
+    tmp->value = key;
+    tmp->next = nullptr;
 
-    if (!this->root)
-        this->root = tmp;
-    else 
-        this->root->next = tmp;
+    if(root == NULL)
+    {
+        root = tmp;
+        return;
+    }
+
+    Node *t = root;
+    while(t->next != nullptr) t = t->next;
+    
+    t->next = tmp;
 }
 
 void LinkedList::print()
 {
-    Node *tmp = this->root;
-    while(tmp != NULL)
+    Node *t = root;
+    while(t != nullptr)
     {
-        cout<<tmp->value<<" ";
-        tmp = tmp->next;
+        cout<<t->value<<" ";
+        t = t->next;
     }
-
     cout<<endl;
+}
+
+bool LinkedList::find(int key)
+{
+    Node *t = root;
+    while(t != nullptr)
+    {
+        if(t->value == key) return true;
+        t = t->next;
+    }
+    return false;
 }
