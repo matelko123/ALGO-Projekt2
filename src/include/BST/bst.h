@@ -1,12 +1,16 @@
 #ifndef __BST_H__
 #define __BST_H__
+#define ull unsigned long long
 
 #include <iostream>
+#include <vector>
+#include <chrono>
+
 using namespace std;
 
-struct node 
+struct node
 {
-    int data;
+    ull data;
     node *left;
     node *right;
 };
@@ -15,22 +19,23 @@ class BST
 {
 private:
     node *root;
-    void insert(int, node *);
+    void insert(ull, node *);
     void destroy_tree(node *);
     void inorder(node *);
 
-    node *search(int, node *);
+    node *search(ull, node *);
 
 public:
     BST();
     ~BST();
 
-    void insert(int);
+    void insert(ull);
     void destroy_tree();
     void inorder();
 
-    node *search(int);
-    bool find(int);
+    node *search(ull);
+    bool find(ull);
+    void set(vector<ull> &);
 };
 
 #endif // __BST_H__

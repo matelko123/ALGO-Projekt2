@@ -1,26 +1,34 @@
 #ifndef __NODE_H__
 #define __NODE_H__
+#define ull unsigned long long
 #include <iostream>
+#include <vector>
+#include <chrono>
+
 using namespace std;
 
 struct Node
 {
-    int value;
+    ull value;
     Node *next;
 };
 
 class LinkedList
 {
-private:
+protected:
     Node *root;
 
 public:
     LinkedList();
+    ~LinkedList();
 
-    void insert(int);
+    void insert(ull);
     void print();
 
-    bool find(int);
+    bool find(ull);
+    void set(vector<ull> &);
+
+    ull &operator[](int);
 };
 
 #endif // __NODE_H__

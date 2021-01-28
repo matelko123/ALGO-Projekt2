@@ -4,8 +4,8 @@ BINDIR := \bin
 SOURCES := $(shell find $(SRCDIR) -name "*.cpp")
 OBJECTS := $(patsubst %.cpp, %.o, $(SOURCES))
 
-CC 			:= g++
-FLAGS		:= -pedantic -Wall -Werror
+CC 			:= g++ -std=c++11
+FLAGS		:= -pedantic -Wc++11-extensions -Wall -Werror 
 CC-FLAGS	:= $(CC) $(FLAGS)
 
 ALLFILES := $(SOURCES)

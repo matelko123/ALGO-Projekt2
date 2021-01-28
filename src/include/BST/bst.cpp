@@ -24,7 +24,7 @@ void BST::destroy_tree(node *leaf)
     }
 }
 
-void BST::insert(int key)
+void BST::insert(ull key)
 {
     if (root != nullptr)
         insert(key, root);
@@ -36,7 +36,7 @@ void BST::insert(int key)
         root->right = nullptr;
     }
 }
-void BST::insert(int key, node *leaf)
+void BST::insert(ull key, node *leaf)
 {
     if (key < leaf->data)
     {
@@ -64,11 +64,11 @@ void BST::insert(int key, node *leaf)
     }
 }
 
-node *BST::search(int key)
+node *BST::search(ull key)
 {
     return search(key, root);
 }
-node *BST::search(int key, node *leaf)
+node *BST::search(ull key, node *leaf)
 {
     if (leaf != nullptr)
     {
@@ -99,8 +99,18 @@ void BST::inorder(node *leaf)
     inorder(leaf->right);
 }
 
-bool BST::find(int key) 
+bool BST::find(ull key) 
 {
     if(search(key) != nullptr) return true;
     return false;
+}
+
+void BST::set(vector<ull> &tab)  
+{
+    auto start = chrono::steady_clock::now();
+    for (int i = 0; i < tab.size(); i++)
+        this->insert(tab[i]);
+    auto end = chrono::steady_clock::now();
+    chrono::duration<double> elapsed_seconds = end-start;
+    cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
 }

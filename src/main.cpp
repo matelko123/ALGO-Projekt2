@@ -1,28 +1,46 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <vector>
+#include <algorithm>
+
 #include "./include/BST/bst.h"
 #include "./include/LinkedList/linkedList.h"
+#include "./include/HashTable/hashTable.h"
+
+#define mini 1000000000
+#define maxi 9999999999
+#define ull unsigned long long
+#define N 1000
 
 using namespace std;
 
-int main(){
-    BST root;
-    root.insert(10);
-    root.insert(5);
-    root.insert(15);
-    root.insert(3);
-    root.insert(20);
-    root.inorder();
-    cout<<root.find(5)<<endl;
-    cout<<root.find(12)<<endl;
+void generateNumbers(vector<ull> &tab, int amount)
+{
+    tab.clear();
+    while (tab.size() < N)
+    {
+        ull num = rand() % (maxi - mini) + mini;
 
+        if (find(tab.begin(), tab.end(), num) == tab.end())
+            tab.push_back(num);
+    }
+}
+
+int main()
+{
+    srand(time(0));
+    vector<ull> tab;
+    generateNumbers(tab, N);
+
+    BST root;
     LinkedList head;
-    head.insert(10);
-    head.insert(1);
-    head.print();
-    head.insert(21);
-    head.print();
-    cout<<head.find(21)<<endl;
-    cout<<head.find(1)<<endl;
+    HashTable ht(N);
+
+    cout << "Wprowadzanie danych do struktur..." << endl;
+    root.set(tab);
+    head.set(tab);
+    ht.set(tab);
 
     return 0;
 }
