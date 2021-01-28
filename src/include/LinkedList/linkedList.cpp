@@ -67,12 +67,24 @@ ull &LinkedList::operator[](int i)
     return root->value;
 }
 
+void LinkedList::find(vector<ull> &tab) 
+{
+    cout << "Wyszukiwanie danych w liscie..." << endl;
+    auto start = chrono::steady_clock::now();
+    for (int i = 0; i < tab.size(); i++)
+        this->find(tab[i]);
+    auto end = chrono::steady_clock::now();
+    chrono::duration<double> elapsed_seconds = end-start;
+    cout << "Gotowe! Czas: " << elapsed_seconds.count() << "s\n";
+}
+
 void LinkedList::set(vector<ull> &tab)  
 {
+    cout << "Wprowadzanie danych do listy..." << endl;
     auto start = chrono::steady_clock::now();
     for (int i = 0; i < tab.size(); i++)
         this->insert(tab[i]);
     auto end = chrono::steady_clock::now();
     chrono::duration<double> elapsed_seconds = end-start;
-    cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    cout << "Gotowe! Czas: " << elapsed_seconds.count() << "s\n";
 }

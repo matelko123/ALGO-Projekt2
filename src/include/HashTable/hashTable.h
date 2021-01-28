@@ -10,8 +10,6 @@
 
 using namespace std;
 
-unsigned int getHash(ull);
-
 class HashTable
 {
 private:
@@ -26,7 +24,9 @@ public:
 
     void print();
     void insert(ull);
-    void set(vector<ull> &);
+    void set(vector<ull>);
+    bool find(ull);
+    void find(vector<ull> &);
 
     LinkedList &operator[](int);
 };

@@ -11,7 +11,7 @@
 #define mini 1000000000
 #define maxi 9999999999
 #define ull unsigned long long
-#define N 1000
+#define N 100000
 
 using namespace std;
 
@@ -37,10 +37,14 @@ int main()
     LinkedList head;
     HashTable ht(N);
 
-    cout << "Wprowadzanie danych do struktur..." << endl;
     root.set(tab);
     head.set(tab);
     ht.set(tab);
+
+    generateNumbers(tab, N);
+    root.find(tab);
+    head.find(tab);
+    ht.find(tab);
 
     return 0;
 }

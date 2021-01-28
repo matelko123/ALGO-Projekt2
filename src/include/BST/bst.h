@@ -28,14 +28,17 @@ private:
 public:
     BST();
     ~BST();
+    void destroy_tree();
 
     void insert(ull);
-    void destroy_tree();
+    void set(vector<ull> &);
+    
     void inorder();
 
     node *search(ull);
+
     bool find(ull);
-    void set(vector<ull> &);
+    void find(vector<ull> &);
 };
 
 #endif // __BST_H__

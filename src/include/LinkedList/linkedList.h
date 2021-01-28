@@ -23,10 +23,11 @@ public:
     ~LinkedList();
 
     void insert(ull);
+    void set(vector<ull> &);
     void print();
 
     bool find(ull);
-    void set(vector<ull> &);
+    void find(vector<ull> &);
 
     ull &operator[](int);
 };

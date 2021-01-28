@@ -104,13 +104,24 @@ bool BST::find(ull key)
     if(search(key) != nullptr) return true;
     return false;
 }
+void BST::find(vector<ull> &tab)
+{
+    cout << "Wyszukiwanie danych w drzewie BST..." << endl;
+    auto start = chrono::steady_clock::now();
+    for (int i = 0; i < tab.size(); i++)
+        this->find(tab[i]);
+    auto end = chrono::steady_clock::now();
+    chrono::duration<double> elapsed_seconds = end-start;
+    cout << "Gotowe! Czas: " << elapsed_seconds.count() << "s\n";
+}
 
 void BST::set(vector<ull> &tab)  
 {
+    cout << "Wprowadzanie danych do drzewa BST..." << endl;
     auto start = chrono::steady_clock::now();
     for (int i = 0; i < tab.size(); i++)
         this->insert(tab[i]);
     auto end = chrono::steady_clock::now();
     chrono::duration<double> elapsed_seconds = end-start;
-    cout << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    cout << "Gotowe! Czas: " << elapsed_seconds.count() << "s\n";
 }
