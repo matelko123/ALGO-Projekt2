@@ -26,7 +26,6 @@ void HashTable::insert(ull val)
     tab[hash_val].insert(val);
 }
 
-
 LinkedList &HashTable::operator[](int i)
 {
     if(i > amount) 
@@ -51,7 +50,6 @@ void HashTable::find(vector<ull> &tab)
     chrono::duration<double> elapsed_seconds = end-start;
     cout << "Gotowe! Czas: " << elapsed_seconds.count() << "s\n";
 }
-
 
 void HashTable::set(vector<ull> tab)  
 {

@@ -28,6 +28,7 @@ private:
 public:
     BST();
     ~BST();
+    
     void destroy_tree();
 
     void insert(ull);

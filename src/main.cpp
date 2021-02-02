@@ -11,7 +11,7 @@
 #define mini 1000000000
 #define maxi 9999999999
 #define ull unsigned long long
-#define N 100000
+#define N 30000
 
 using namespace std;
 
@@ -45,6 +45,8 @@ int main()
     root.find(tab);
     head.find(tab);
     ht.find(tab);
+
+    cout<<"End!"<<endl;
 
     return 0;
 }
